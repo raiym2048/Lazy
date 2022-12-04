@@ -31,10 +31,19 @@ public class MainController {
         org.jsoup.nodes.Document page = Jsoup.parse(new URL(url), 3000);
         Element main = page.select("div[id=main]").first();
         Elements rows = main.select("div[class=row]");
+        Elements ur = rows.select("img[rel=product-image]");
         for(Element row : rows){
             String date = row.select("span[class=prouct_name]").text();
+
+
             books.add(date);
-            System.out.println(date);
+            //System.out.println(date);
+        }
+        for(Element im : ur){
+            String ur2 = im.select("src").text();
+
+
+            System.out.println(ur2);
         }
         model.addAttribute("books",books);
         return "home";
