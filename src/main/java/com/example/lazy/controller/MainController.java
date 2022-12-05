@@ -1,6 +1,7 @@
 package com.example.lazy.controller;
 
 import com.example.lazy.models.Parser;
+import com.example.lazy.models.Source;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -9,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -24,29 +24,58 @@ public class MainController {
     }
     @GetMapping("/")
     public String home(Model model) throws IOException {
-        ArrayList<String> books = new ArrayList<>();
+        ArrayList<Source> books = new ArrayList<Source>();
+        //ArrayList<String> srcs = new ArrayList<>();
         //model.addAttribute("title", "this is title");
         Parser parser = new Parser();
         String url = "https://enter.kg/computers/noutbuki_bishkek";
-        org.jsoup.nodes.Document page = Jsoup.parse(new URL(url), 3000);
+        org.jsoup.nodes.Document page = Jsoup.parse(new URL(url), 9000);
         Element main = page.select("div[id=main]").first();
         Elements rows = main.select("div[class=row]");
         Elements ur = rows.select("img[rel=product-image]");
-        for(Element row : rows){
+
+
+        int ind1 = 0, ind2 = 0;
+
+
+
+        for(int i = 0;i < ur.size();i++){
+
+
+
+            Element row = rows.get(i);
             String date = row.select("span[class=prouct_name]").text();
+            Source source = new Source();
+            source.setName(date);
+
+            String price = row.select("span[class=price]").text();
+            source.setPrice(price);
+
+            String artik = row.select("span[class=sku]").text();
+
+            source.setArt(artik);
+
+            Element ur2 = ur.get(i);
+
+            String str = ur2.toString();
+            int ind = str.indexOf("src"), space = ind-1;
+            space = str.indexOf(" data-zoom=");
+
+            String str2 = "https://enter.kg"+str.substring(ind+5, space-1);
 
 
-            books.add(date);
-            //System.out.println(date);
+            source.setSource(str2);
+            books.add(source);
+
         }
-        for(Element im : ur){
-            String ur2 = im.select("src").text();
 
-
-            System.out.println(ur2);
-        }
         model.addAttribute("books",books);
+
         return "home";
+    }
+    @GetMapping("/buy")
+    public String buying(Model model){
+        return "buying";
     }
 
 /*    @GetMapping("/about")

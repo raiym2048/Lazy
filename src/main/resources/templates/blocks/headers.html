@@ -14,11 +14,11 @@
             </a>
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About Company</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Доставка</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Credit</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Гарантия</a></li>
             </ul>
         </header>
     </div>
@@ -29,40 +29,19 @@
     <div class="container mt-5">
         <h1>Блог сайта</h1>
         <div th:each="el : ${books}" class="alert alert-info mt-2">
-            <p th:text="${el}"/>
+            <p th:text="${el.name}"/>
+            <p th:text="${el.price} +  ${el.art} "/>
+            <a th:href="${el.source}">
+            <img  th:src="${el.source}" alt="Italian Trulli" width="100" height="81">
+            </a>
+            <a href="/buy">
+                <button>Купить</button>
+            </a>
+
+
 
             <!--<a th:href="'/blog/' + ${el.id}" class="btn btn-warning">Детальнее</a>-->
         </div>
-    </div>
-    <div class="my-3 p-3 bg-body rounded shadow-sm">
-        <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
-        <div class="d-flex text-muted pt-3">
-            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-
-            <p class="pb-3 mb-0 small lh-sm border-bottom">
-                <strong class="d-block text-gray-dark">@username</strong>
-                Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
-            </p>
-        </div>
-        <div class="d-flex text-muted pt-3">
-            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
-
-            <p class="pb-3 mb-0 small lh-sm border-bottom">
-                <strong class="d-block text-gray-dark">@username</strong>
-                Some more representative placeholder content, related to this other user. Another status update, perhaps.
-            </p>
-        </div>
-        <div class="d-flex text-muted pt-3">
-            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"></rect><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
-
-            <p class="pb-3 mb-0 small lh-sm border-bottom">
-                <strong class="d-block text-gray-dark">@username</strong>
-                This user also gets some representative placeholder content. Maybe they did something interesting, and you really want to highlight this in the recent updates.
-            </p>
-        </div>
-        <small class="d-block text-end mt-3">
-            <a href="#">All updates</a>
-        </small>
     </div>
 </div>
 <div th:fragment="footer">
