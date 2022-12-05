@@ -8,6 +8,7 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,8 +19,15 @@ public class MainController {
 /*    @Autowired
     private UserRepository messageRepository;*/
 
+    String forLoad = "101-100";
+    int forLoadi = 100;
+    boolean b = false;
+    String url = "https://enter.kg/computers/noutbuki_bishkek";
+    @RequestMapping(value="/")
+    public void doStuffMethod() {
 
-    public void getPage() throws IOException {
+        System.out.println(url + " change it!");
+        System.out.println(forLoad + " do it!");
 
     }
     @GetMapping("/")
@@ -28,8 +36,17 @@ public class MainController {
         //ArrayList<String> srcs = new ArrayList<>();
         //model.addAttribute("title", "this is title");
         Parser parser = new Parser();
-        String url = "https://enter.kg/computers/noutbuki_bishkek";
+        if(b){
+            url = "https://enter.kg/computers/noutbuki_bishkek/"+ "results,"+forLoad;
+            forLoadi+=100;
+            forLoad = String.valueOf((forLoadi+1))+"-"+String.valueOf((forLoadi));
+        }
+        else {
+            b = true;
+        }
+
         org.jsoup.nodes.Document page = Jsoup.parse(new URL(url), 9000);
+        System.out.println(url);
         Element main = page.select("div[id=main]").first();
         Elements rows = main.select("div[class=row]");
         Elements ur = rows.select("img[rel=product-image]");
@@ -76,6 +93,22 @@ public class MainController {
     @GetMapping("/buy")
     public String buying(Model model){
         return "buying";
+    }
+    @GetMapping("/company")
+    public String Company(Model model){
+        return "company";
+    }
+    @GetMapping("/delivery")
+    public String Delivery(Model model){
+        return "delivery";
+    }
+    @GetMapping("/credit")
+    public String Credit(Model model){
+        return  "credit";
+    }
+    @GetMapping("/garantyya")
+    public String Garanty(Model model){
+        return "garanty";
     }
 
 /*    @GetMapping("/about")
