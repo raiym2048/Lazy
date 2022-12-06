@@ -20,14 +20,27 @@ public class MainController {
     private UserRepository messageRepository;*/
 
     String forLoad = "101-100";
-    int forLoadi = 100;
+    int forLoadi = 0;
     boolean b = false;
     String url = "https://enter.kg/computers/noutbuki_bishkek";
-    @RequestMapping(value="/")
-    public void doStuffMethod() {
+    @RequestMapping(value="/do-stuff")
+    public String doStuffMethod(Model model) throws IOException {
 
-        System.out.println(url + " change it!");
-        System.out.println(forLoad + " do it!");
+        if(forLoadi < 2200)
+            forLoadi+=100;
+        forLoad = String.valueOf((forLoadi+1))+"-"+String.valueOf((forLoadi));
+        url = "https://enter.kg/computers/noutbuki_bishkek/"+ "results,"+forLoad;
+        return home(model);
+
+    }
+    @RequestMapping(value="/do-stuff2")
+    public String doStuffMethod2(Model model) throws IOException {
+
+        if(forLoadi > 1)
+            forLoadi-=100;
+        forLoad = String.valueOf((forLoadi+1))+"-"+String.valueOf((forLoadi));
+        url = "https://enter.kg/computers/noutbuki_bishkek/"+ "results,"+forLoad;
+        return home(model);
 
     }
     @GetMapping("/")
@@ -37,9 +50,7 @@ public class MainController {
         //model.addAttribute("title", "this is title");
         Parser parser = new Parser();
         if(b){
-            url = "https://enter.kg/computers/noutbuki_bishkek/"+ "results,"+forLoad;
-            forLoadi+=100;
-            forLoad = String.valueOf((forLoadi+1))+"-"+String.valueOf((forLoadi));
+
         }
         else {
             b = true;
