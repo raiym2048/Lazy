@@ -49,12 +49,7 @@ public class MainController {
         //ArrayList<String> srcs = new ArrayList<>();
         //model.addAttribute("title", "this is title");
         Parser parser = new Parser();
-        if(b){
 
-        }
-        else {
-            b = true;
-        }
 
         org.jsoup.nodes.Document page = Jsoup.parse(new URL(url), 9000);
         System.out.println(url);
