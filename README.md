@@ -15,6 +15,20 @@ And we can open the image of notebook by clicking the image:
 The application sending to client the information about purchase from Admin account(in my case its my personal account)
 ![image](https://user-images.githubusercontent.com/76080041/207894469-01511422-aae8-4f94-b1ac-14a373326cef.png)
 
+about company page:
+![image](https://user-images.githubusercontent.com/76080041/207895476-b96b9a02-a503-4a7e-b72d-8880889d3df7.png)
+
+Delivery page:
+![image](https://user-images.githubusercontent.com/76080041/207895564-ba44c47b-567a-41e7-863d-78f88b44a894.png)
+
+Credit page:
+![image](https://user-images.githubusercontent.com/76080041/207895615-0d70d687-4d71-4a76-9a20-8cf12d59c25d.png)
+
+guarantee page:
+![image](https://user-images.githubusercontent.com/76080041/207895779-396ddf75-0121-4827-a105-839f3256d528.png)
+
+
+
 then we go to the main page automatically;
 
 How run the project:
