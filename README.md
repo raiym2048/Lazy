@@ -8,7 +8,7 @@ The main page is contain only notebooks with the buttons and we can move through
 
 And we can open the image of notebook by clicking the image:
 ![image](https://user-images.githubusercontent.com/76080041/207893040-0afb04ff-d9c1-47b5-a83d-8a3bf6aa7f4a.png)
- when we will try to but the product we can see:
+ when we will try to buy the product we can see:
  ![image](https://user-images.githubusercontent.com/76080041/207893272-dd82944c-501c-4222-a2d4-25a3086d26b0.png)
 ![image](https://user-images.githubusercontent.com/76080041/207893401-192abd7b-42e9-422d-bd65-2867b07345fa.png)
 
