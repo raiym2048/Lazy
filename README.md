@@ -37,7 +37,6 @@ How run the project:
 Just download pgAdmin4 and postgresql + Intellij idea ultimate
 then setup application.proporties for database
 
-
 ```properties
 MAIN_URL=localhost/
 spring_profile_active=prod
