@@ -39,10 +39,11 @@ then setup application.proporties for database
 
 
 ```properties
+MAIN_URL=localhost/
 spring_profile_active=prod
 PROD_DB_HOST=containers-us-west-28.railway.app
 PROD_DB_PORT=7938
 PROD_DB_NAME=railway
-PROD_DB_PASSWORD=xNjoH2LBi7758uk4itUd
+PROD_DB_PASSWORD=1234
 PROD_DB_USERNAME=postgres
 ```
