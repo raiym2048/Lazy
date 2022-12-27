@@ -111,7 +111,7 @@ public class MainController {
         lastAdress = adress;
         System.out.println(adress.getEmail() + adress.getAdress() + adress.getPhone_number() + "aaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
                 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        senderService.sendEmail(adress.getEmail(), adress.getAdress(), adress.getPhone_number());
+        senderService.sendEmail(adress.getEmail().toString(), adress.getAdress(), adress.getPhone_number());
 
         return "redirect:/";
     }
