@@ -103,6 +103,10 @@ public class MainController {
 
         return "buying";
     }
+    @GetMapping("send")
+            public String send(Model model){
+        return "send";
+    }
     Adress lastAdress;
 
     @PostMapping("/")
@@ -113,7 +117,7 @@ public class MainController {
                 "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         senderService.sendEmail(adress.getEmail().toString(), adress.getAdress(), adress.getPhone_number());
 
-        return "redirect:/";
+        return "send";
     }
     @Autowired
     private JavaMailSender mailSender;
